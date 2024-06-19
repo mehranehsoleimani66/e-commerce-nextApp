@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Suspense } from "react";
 import Categories from "../../../components/categories/categories";
 import Loading from "../../../components/product/loading";
 import ProductList from "../../../components/product/productList";
 import { getFetch } from "../../../utils/fetch";
+import Search from "./search";
 
 export default async function MenuPage({ searchParams }) {
   const params = new URLSearchParams(searchParams);
@@ -14,19 +14,7 @@ export default async function MenuPage({ searchParams }) {
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-lg-3">
-            <div>
-              <label className="form-label">جستجو</label>
-              <div className="input-group mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="نام محصول ..."
-                />
-                <Link href="#" className="input-group-text">
-                  <i className="bi bi-search"></i>
-                </Link>
-              </div>
-            </div>
+            <Search />
             <hr />
             <div className="filter-list">
               <div className="form-label">دسته بندی</div>

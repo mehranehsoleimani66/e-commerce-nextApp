@@ -1,13 +1,13 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Navigate({ links }) {
   const pathName = usePathname();
   const router = useRouter();
-
+  const searchParams = useSearchParams();
   function clickHandler(page) {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams);
     params.set("page", page);
     router.replace(`${pathName}?${params.toString()}`);
   }
