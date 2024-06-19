@@ -4,3 +4,15 @@ export function getblurdataURL() {
 export function formatNumber(number) {
   return new Intl.NumberFormat().format(number);
 }
+export const messageHandler = (message) => {
+  if (typeof message === "object") {
+    const errors = [];
+    Object.keys(message).map((key) => {
+      message[key].map((e) => {
+        errors.push(e);
+      });
+    });
+    console.log(errors, "errrorrrrs");
+    return errors.join();
+  } else return message;
+};

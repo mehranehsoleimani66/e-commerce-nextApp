@@ -1,6 +1,7 @@
-import About from "../../components/about";
+import About from "../../components/about/About";
 import Contact from "../../components/contact/contact";
 import Features from "../../components/layout/features";
+import Footer from "../../components/layout/footer";
 import Products from "../../components/products";
 import { getFetch } from "../../utils/fetch";
 
@@ -15,6 +16,7 @@ export default async function Home() {
       <Products tabList={tabList} tabPanel={tabPanel} />
       <About />
       <Contact />
+      <Footer />
     </>
   );
 }

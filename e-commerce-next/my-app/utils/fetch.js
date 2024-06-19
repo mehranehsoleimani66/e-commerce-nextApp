@@ -13,4 +13,17 @@ const getFetch = async (url) => {
     return new Error(`problem in fetching data ${res.status}`);
   }
 };
-export { getFetch };
+const PostFetch = async (url, body) => {
+  const res = await fetch(`http://localhost:8000/api${url}`, {
+    cache: "no-store",
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  return await res.json();
+};
+export { PostFetch, getFetch };

@@ -7,20 +7,16 @@ import SubmitButton from "../submitButton";
 export default function FormContact() {
   const [state, formAction] = useFormState(Create, {});
   useEffect(() => {
-    if (state?.status === "error") {
-      toast(state.message);
-    } else if (state?.status === "success") {
-      toast(state.message);
-    }
+    toast(state?.message, { type: `${state.status}` });
   }, [state]);
   return (
-    <div class="form_container">
+    <div className="form_container">
       <form action={formAction}>
         <div>
           <input
             name="name"
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="نام و نام خانوادگی"
           />
         </div>
@@ -28,7 +24,7 @@ export default function FormContact() {
           <input
             name="email"
             type="email"
-            class="form-control"
+            className="form-control"
             placeholder="ایمیل"
           />
         </div>
@@ -36,7 +32,7 @@ export default function FormContact() {
           <input
             name="text"
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="موضوع پیام"
           />
         </div>
@@ -45,11 +41,11 @@ export default function FormContact() {
             rows="10"
             name="text"
             style={{ height: "100px" }}
-            class="form-control"
+            className="form-control"
             placeholder="متن پیام"
           ></textarea>
         </div>
-        <div class="btn_box">
+        <div className="btn_box">
           <SubmitButton title="ارسال پیام" />
         </div>
       </form>
