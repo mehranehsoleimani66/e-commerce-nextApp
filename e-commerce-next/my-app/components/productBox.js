@@ -23,7 +23,9 @@ export default function ProductBox({ product }) {
           />
         </div>
         <div className="detail-box">
-          <h5>{product.name}</h5>
+          <Link href={`/products/${product.slug}`}>
+            <h5>{product.name}</h5>
+          </Link>
           <p>{product.description}</p>
           <div className="options">
             <h6>

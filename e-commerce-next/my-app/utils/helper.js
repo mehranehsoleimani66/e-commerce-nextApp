@@ -16,3 +16,6 @@ export const messageHandler = (message) => {
     return errors.join();
   } else return message;
 };
+export function salePercent(price, salePrice) {
+  return Math.round(((price - salePrice) / price) * 100);
+}

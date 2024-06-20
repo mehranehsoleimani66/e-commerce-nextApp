@@ -2,8 +2,9 @@ import { Suspense } from "react";
 import Categories from "../../../components/categories/categories";
 import Loading from "../../../components/product/loading";
 import ProductList from "../../../components/product/productList";
+import Search from "../../../components/product/search";
+import SortBy from "../../../components/sortBy/sortBy";
 import { getFetch } from "../../../utils/fetch";
-import Search from "./search";
 
 export default async function MenuPage({ searchParams }) {
   const params = new URLSearchParams(searchParams);
@@ -21,49 +22,7 @@ export default async function MenuPage({ searchParams }) {
               <Categories categories={categories} />
             </div>
             <hr />
-            <div>
-              <label className="form-label">مرتب سازی</label>
-              <div className="form-check my-2">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                />
-                <label className="form-check-label cursor-pointer">
-                  بیشترین قیمت
-                </label>
-              </div>
-              <div className="form-check my-2">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                />
-                <label className="form-check-label cursor-pointer">
-                  کمترین قیمت
-                </label>
-              </div>
-              <div className="form-check my-2">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                />
-                <label className="form-check-label cursor-pointer">
-                  پرفروش ترین
-                </label>
-              </div>
-              <div className="form-check my-2">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  name="flexRadioDefault"
-                />
-                <label className="form-check-label cursor-pointer">
-                  با تخفیف
-                </label>
-              </div>
-            </div>
+            <SortBy />
           </div>
           <div className="col-sm-12 col-lg-9">
             <Suspense fallback={<Loading />}>
